@@ -1,9 +1,8 @@
-require "pry"
-
 $register = []
 
 $meals = []
-class Entree_side
+
+class Entree
   
   def initialize
     ask_choice
@@ -147,10 +146,27 @@ class Side
     chaching = $register.sum
     print "$"
     puts  chaching
+    puts "--- Swipe Card ---"
+    if chaching >= 10
+      working
+      puts "Declined"
+    elsif chaching <= 10
+      working
+      puts "Approved"
+      puts "Thank You"
+    end
   end
+
+  def working
+    print "."
+    sleep(1)
+    print "."
+    sleep(1)
+    print "."
+    sleep(1)
+  end
+
 end  
 
-binding.pry
-
-Entree_side.new
+Entree.new
 Side.new
